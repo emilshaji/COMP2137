@@ -86,7 +86,7 @@ configure_ufw_rules() {
   if ! sudo ufw status | grep -q "Status: active"; then
     echo "** Firewall **"
     echo "Enabling ufw firewall..."
-    if sudo ufw enable; then
+    if yes | sudo ufw enable; then
       echo "ufw firewall enabled successfully."
     else
       echo "Error enabling ufw firewall!"
