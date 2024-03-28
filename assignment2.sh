@@ -101,7 +101,7 @@ configure_ufw_rules() {
   if ! sudo ufw status verbose | grep -q "SRC INTERFACE $mgmt_if  DST PORT     22"; then
     echo "** SSH Rule **"
     echo "Adding rule to allow SSH on interface '$mgmt_if'..."
-    if sudo ufw allow in on "$mgmt_if" to any port 22 proto tcp; then
+    if yes | sudo ufw allow in on "$mgmt_if" to any port 22 proto tcp; then
       echo "SSH rule for '$mgmt_if' added successfully."
     else
       echo "Error adding SSH rule for '$mgmt_if'!"
